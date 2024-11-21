@@ -3,28 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redes Sociais</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+    <title>Análise de Dados - Aluno Ensino Médio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Relatório das redes sociais</h1>
-        <nav>
-            <a href="index.html">Mundo</a>
-            <a href="#">Minha escola</a>
-        </nav>
-    </header>
-    <main class="graficos-section">
-        <section id="graficos-container" class="graficos-container">
-            <!-- crie os gráficos/texto aqui -->
-        </section>
-    </main>
-    <footer>
-        <p>Desenvolvido por Gui Lima</p>
-    </footer>
-    <script type="module" src="graficos/common.js"></script>
-    <script type="module" src="graficos/informacoesGlobais.js"></script>
-    <script type="module" src="graficos/quantidadeUsuarios.js"></script>
+    <div class="container">
+        <h1>Análise de Desempenho do Aluno</h1>
+        
+        <!-- Informações do Aluno -->
+        <div class="student-info">
+            <label for="nome">Nome do Aluno:</label>
+            <input type="text" id="nome" placeholder="Digite o nome do aluno">
+        </div>
+
+        <!-- Tabela de Notas -->
+        <h2>Notas e Frequências</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Disciplina</th>
+                    <th>Nota</th>
+                    <th>Frequência (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Matemática</td>
+                    <td><input type="number" id="nota-matematica" min="0" max="10"></td>
+                    <td><input type="number" id="freq-matematica" min="0" max="100"></td>
+                </tr>
+                <tr>
+                    <td>Português</td>
+                    <td><input type="number" id="nota-portugues" min="0" max="10"></td>
+                    <td><input type="number" id="freq-portugues" min="0" max="100"></td>
+                </tr>
+                <tr>
+                    <td>Ciências</td>
+                    <td><input type="number" id="nota-ciencias" min="0" max="10"></td>
+                    <td><input type="number" id="freq-ciencias" min="0" max="100"></td>
+                </tr>
+                <tr>
+                    <td>História</td>
+                    <td><input type="number" id="nota-historia" min="0" max="10"></td>
+                    <td><input type="number" id="freq-historia" min="0" max="100"></td>
+                </tr>
+                <tr>
+                    <td>Geografia</td>
+                    <td><input type="number" id="nota-geografia" min="0" max="10"></td>
+                    <td><input type="number" id="freq-geografia" min="0" max="100"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Botão para Calcular -->
+        <button onclick="calcularDesempenho()">Calcular Desempenho</button>
+
+        <!-- Resultado da Análise -->
+        <div id="resultado">
+            <h3>Resultado</h3>
+            <p id="media"></p>
+            <p id="situacao"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
