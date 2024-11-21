@@ -34,4 +34,61 @@ function calcularDesempenho() {
 
     // Exibir a situação do aluno
     document.getElementById("situacao").innerText = situacao;
+
+    // Atualizar gráficos com os dados
+    atualizarGraficos([notaMatematica, notaPortugues, notaCiencias, notaHistoria, notaGeografia], 
+                      [freqMatematica, freqPortugues, freqCiencias, freqHistoria, freqGeografia]);
+}
+
+function atualizarGraficos(notas, frequencias) {
+    const ctxNotas = document.getElementById('chartNotas').getContext('2d');
+    const ctxFrequencias = document.getElementById('chartFrequencias').getContext('2d');
+
+    // Gráfico de Notas
+    new Chart(ctxNotas, {
+        type: 'bar',
+        data: {
+            labels: ['Matemática', 'Português', 'Ciências', 'História', 'Geografia'],
+            datasets: [{
+                label: 'Notas',
+                data: notas,
+                backgroundColor: '#4CAF50',
+                borderColor: '#388E3C',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 10
+                }
+            }
+        }
+    });
+
+    // Gráfico de Frequências
+    new Chart(ctxFrequencias, {
+        type: 'bar',
+        data: {
+            labels: ['Matemática', 'Português', 'Ciências', 'História', 'Geografia'],
+            datasets: [{
+                label: 'Frequência (%)',
+                data: frequencias,
+                backgroundColor: '#FF9800',
+                borderColor: '#F57C00',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100
+                }
+            }
+        }
+    });
 }

@@ -80,3 +80,14 @@ button:hover {
     font-size: 1.2rem;
     color: #333;
 }
+
+.charts {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+canvas {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
